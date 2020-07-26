@@ -56,7 +56,8 @@ I first took a stab at the binary with [Hopper Diassembler](https://www.hopperap
 The free-trial is fairly restrictive, but the labeling provided was very useful in 
 hunting down the assembly code section corresponding to the buggy line of code.
 
-I then used _otool_ to get a text disassembly dump via the command `otool -vtj Brogue > asmdump`. 
+I then used _otool_ to get a text disassembly dump via the command `otool -vtj Brogue > asmdump`.
+_otool_ is a nifty CLI program for working with LLVM produced code and artifacts that I believe is on MacOS by default.
 I’m a little more dextrous interacting with code via Vim, so it was easier to play around with the 
 specific assembly sections. Additionally, this tool gave me the full hexdump of each line of assembly, 
 which I couldn’t easily tease out of Hopper.
@@ -67,8 +68,9 @@ in the `otool` dump. Scanning up, I found the telltale `cmpq` then `je` that usu
 I struggled a bit finding ways of reversing the otool dump back into code, especially since I wanted to play 
 with Brogue, instead of playing around with getting the correct linked header files. Thus, I fell back on trusty xxd. 
 
-I dumped the binary to a structured hexdump with `xxd Brogue > hexdump`. I found particularly unique hexcode 
-in the neighborhood of that branch in the otool dump `e8 7811` and jumped to it with the fun regex `e8.\?78.\?11` 
+I dumped the binary to a structured hexdump with `xxd Brogue > hexdump`.
+`xxd` is a very simple, fairly standard Unix program for creating readable hexdumps of binaries. 
+I found particularly unique hexcode in the neighborhood of that branch in the otool dump `e8 7811` and jumped to it with the fun regex `e8.\?78.\?11` 
 since I didn’t know how it would be split in the hexdump. I then found the branch leading to the code in the hexdump.
 
 Looking back at the code and noticing that it was just a slight clamp on how powerful this Rapier of Confusion would be. 
