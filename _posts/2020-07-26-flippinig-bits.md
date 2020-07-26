@@ -20,10 +20,10 @@ Brogue, whose development began in 2009, is fairly well renowned and influential
 You may have even been exposed to Brogue’s core mechanical conceits through _Pixel Dungeon_,the oft-forked and remixed mobile app, such as I was.[^3]
 
 While procrastinating working on performance reviews, I had been playing some Brogue. 
-Picking up a magic Rapier of Confusion in the game, a quick weapon that you could lunge with for great effect, I enchanted it heavily with magic scrolls. 
+Picking up a magic Rapier of Confusion in the game, a quick weapon with powerful lunges, I enchanted it heavily with magic scrolls. 
 
-Stepping on to a new level, I enhanced it one more time with a Scroll of Enchantment. 
-I then went to stab a lone goblin, when my game suddenly crashed. I shrugged, as this is not too uncommon. 
+Stepping onto a new level, I enhanced it one more time with a Scroll of Enchantment. 
+I then went to stab a lonesome goblin, when my game suddenly crashed. I shrugged, as this is not too uncommon. 
 Reloading the game again from my auto-save and appearing at the start of the level, I enchanted the rapier once again and tried to stab the goblin. 
 Again, the game crashed.
 
