@@ -36,7 +36,8 @@ Thanks to Brogue being open-source, the program was compiled with debug symbols,
 so I could see by the stack trace that crash was being caused by a 
 division-by-zero error by the fp_sqrt function called by the function runicWeaponChance. 
 By searching for _runicWeaponChance_ in the repo, 
-I quickly found the line at fault [here](https://github.com/tsadok/brogue/blob/master/src/brogue/PowerTables.c#L418).
+I quickly found the line at fault [here](https://github.com/tsadok/brogue/blob/master/src/brogue/PowerTables.c#L418),
+where the game adjust the proc change of magical effects for quick weapons, such as the rapier. 
 
 At first, I tried to do things the proper way. 
 I downloaded the code from the official site and tried to compile it with Xcode. 
@@ -75,8 +76,8 @@ since I didn’t know how it would be split in the hexdump. I then found the bra
 
 Looking back at the code and noticing that it was just a slight clamp on how powerful this Rapier of Confusion would be. 
 I decided to short circuit the code. I changed the `JE` (jump if the previous cmp check was equal) to `JNO` (jump if not overflow). 
-This jump was now was now always taken, skipping over the buggy code previously visited for adjust the proc chance for quick weapons. 
-To do this change, I changed `0F 84` to `0F 81` I reversed the hexdump with `xxd -r hexdump > Brogue`.
+This jump was now was now always taken, skipping over the buggy proc chance code. 
+To perform this change, I changed `0F 84` to `0F 81`. I then reversed the hexdump with `xxd -r hexdump > Brogue`.
 
 I loaded back up the game. Sadly, the game handles saves via replay, which now diverged given that the proc chance was higher. 
 Someone actually smart probably could have patched it to actually fix the bug and avoid the desync issue. 
