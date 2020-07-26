@@ -5,17 +5,17 @@ date:   2020-07-26 12:35:25 -0400
 categories: jekyll update
 ---
 
-Today’s story is about how I hackily patched a _division-by-zero_ bug in the game _Brogue_ by using a few basic hex-editing and disassembly MacOS tools. 
+Today’s story is about how I hackily patched a _division-by-zero_ bug in the game _Brogue_ by using a few useful tools available on MacOS. 
 
 I’m a sucker for well-made roguelikes. I cut my teeth on the venerable _NetHack_, had a long affair with the very 
-focused _Dungeon Crawl: Stone Soup _[^1], and have flitted around with fresh takes on the genre like _Cataclysm: Dark Days Ahead _[^2].
+focused _Dungeon Crawl: Stone Soup_[^1], and have flitted around with fresh takes on the genre like _Cataclysm: Dark Days Ahead_[^2].
 
-My latest roguelike obsession has been _Brogue. _
+My latest roguelike obsession has been _Brogue_.
 
 Brogue, whose development began in 2009, is fairly well renowned and influential for its 
 [very streamlined game design](https://www.tigsource.com/2012/01/15/brogue/) and 
 [accessible UI](https://www.rockpapershotgun.com/2015/01/23/have-you-played-brogue/). 
-You may have even been exposed to Brogue’s core mechanical conceits through _Pixel Dungeon, _the oft-forked and remixed mobile app, such as I was. [^3]
+You may have even been exposed to Brogue’s core mechanical conceits through _Pixel Dungeon_,the oft-forked and remixed mobile app, such as I was.[^3]
 
 While procrastinating working on performance reviews, I had been playing some Brogue. 
 Picking up a magic Rapier of Confusion in the game, a quick weapon that you could lunge with for great effect, I enchanted it heavily with magic scrolls. 
@@ -29,11 +29,11 @@ Usually the game crashes for very inexplicable reasons, but this was a repeatabl
 I reloaded the game, enchanted the weapon, and then tried to look at the weapon’s stats. 
 The game crashed.
 
-This time instead of hand waving away the MacOS crashed program prompt, I clicked on the report issue button.  
+This time instead of hand waving away the MacOS crashed program prompt, I clicked on the report issue button. 
 Thanks to Brogue being open-source, the program was compiled with debug symbols, 
 so I could see by the stack trace that crash was being caused by a 
 division-by-zero error by the fp_sqrt function called by the function runicWeaponChance. 
-By searching for _runicWeaponChance _in the repo, 
+By searching for _runicWeaponChance_ in the repo, 
 I quickly found the line at fault [here](https://github.com/tsadok/brogue/blob/master/src/brogue/PowerTables.c#L418).
 
 At first, I tried to do things the proper way. 
@@ -86,8 +86,6 @@ hacking binaries on MacOS and a greater fear and respect for eels.
 
 [^1]: Or DCSS as the cool kids say
 
-[^2]: Now you may say, “that’s a rouge-_lite_, good sir.” To which I respond: “Ok.” 
-See  [http://www.roguebasin.com/index.php?title=Berlin_Interpretation](http://www.roguebasin.com/index.php?title=Berlin_Interpretation) 
-for an ideological struggle similar Vim vs. Emacs or schism of the Early Christian Church. Roguelikes are _serious_ business. 
+[^2]: Now you may say, “that’s a rouge-_lite_, good sir.” To which I respond: “Ok.” See  [http://www.roguebasin.com/index.php?title=Berlin_Interpretation](http://www.roguebasin.com/index.php?title=Berlin_Interpretation) for an ideological struggle similar Vim vs. Emacs or schism of the Early Christian Church. Roguelikes are _serious_ business. 
 
 [^3]: All of these mentioned games happen to be free-range cage-free open source code
