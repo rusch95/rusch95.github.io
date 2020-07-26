@@ -12,6 +12,8 @@ focused _Dungeon Crawl: Stone Soup_[^1], and have flitted around with fresh take
 
 My latest roguelike obsession has been _Brogue_.
 
+![Screenshot of Brogue](https://user-images.githubusercontent.com/10816808/88485793-4d4c7600-cf3e-11ea-8c56-3599c806763a.png)
+
 Brogue, whose development began in 2009, is fairly well renowned and influential for its 
 [very streamlined game design](https://www.tigsource.com/2012/01/15/brogue/) and 
 [accessible UI](https://www.rockpapershotgun.com/2015/01/23/have-you-played-brogue/). 
