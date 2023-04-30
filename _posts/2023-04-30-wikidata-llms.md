@@ -35,7 +35,7 @@ logo, while GPT-4 gets a black OpenAI logo.
 
 GPT-3.5 does a great job of dealing with common knowledge:
 
-![Popular Game in 2005?](/assets/2023-04-30-wikidata-llms/image15.png)
+![Popular Game in 2005?](./assets/2023-04-30-wikidata-llms/image15.png)
 
 <details>
     <summary><b>Conversation Text</b></summary>
@@ -94,7 +94,7 @@ Wikidata is a free and open knowledge base that can be read and edited
 by both humans and machines. It consists of labeled items connected
 through properties to specific values, such as in the diagram below.
 
-![Example California Graph](/assets/2023-04-30-wikidata-llms/image21.png)
+![Example California Graph](./assets/2023-04-30-wikidata-llms/image21.png)
 
 ### Web 3.0 (Not the Crypto One)
 
@@ -149,7 +149,7 @@ history](https://www.skynettoday.com/overviews/neural-net-history).
 A bunch of innovations and billions of dollars of investment followed.
 Image labeled got largely solved, deprecating this XKCD:
 
-![XKCD](/assets/2023-04-30-wikidata-llms/image19.png)
+![XKCD](./assets/2023-04-30-wikidata-llms/image19.png)
 
 [Transformers](https://arxiv.org/abs/1706.03762) hit the
 scene in 2017, GPT2 in 2019, GPT3 in 2020, and ChatGPT in 2022. [Eight
@@ -220,24 +220,24 @@ a game that lacks it.
 First, we build a query to find video games lacking narrative location.
 Narrative location looks like this:
 
-![](/assets/2023-04-30-wikidata-llms/image17.png)
+![](./assets/2023-04-30-wikidata-llms/image17.png)
 
 SPARQL is notoriously hard to write for beginners, so we'll use the
 Query Builder to build an initial example for ChatGPT to work with
 ([link](https://w.wiki/5Rvo)). The [Request a query](https://www.wikidata.org/wiki/Wikidata:Request_a_query)
 page also has some good examples to seed with.
 
-![](/assets/2023-04-30-wikidata-llms/image8.png)
+![](./assets/2023-04-30-wikidata-llms/image8.png)
 
 Clicking "[Show query in the Query Service](https://query.wikidata.org/)," we get the underlying SPARQL
 query. You have to run the query first.
 
-![](/assets/2023-04-30-wikidata-llms/image5.png)
+![](./assets/2023-04-30-wikidata-llms/image5.png)
 
 We want to find games without a narrative location set, so next we'll
 copy paste this over to ChatGPT to add in that filter.
 
-![](/assets/2023-04-30-wikidata-llms/image4.png)
+![](./assets/2023-04-30-wikidata-llms/image4.png)
 
 <details>
     <summary><b>Conversation Text</b></summary>
@@ -318,7 +318,7 @@ paste in the article to ChatGPT 3.5 and then ask "Could you provide the
 list of narrative locations in json form from this game? If it doesn\'t
 have narrative locations, provide an empty list."
 
-![](/assets/2023-04-30-wikidata-llms/image1.png)
+![](./assets/2023-04-30-wikidata-llms/image1.png)
 
 <details>
     <summary><b>Conversation Text</b></summary>
@@ -344,18 +344,18 @@ The Pacific as a narrative location is a little iffy, but otherwise, not bad.
 
 Bard keeps the Pacific, but drops Germany:
 
-![](/assets/2023-04-30-wikidata-llms/image3.png)
+![](./assets/2023-04-30-wikidata-llms/image3.png)
 
 GPT-4 eschews adding the Pacific:
 
-![](/assets/2023-04-30-wikidata-llms/image6.png)
+![](./assets/2023-04-30-wikidata-llms/image6.png)
 
 Great! Let's add these locations to the wikidata entry.
 
 Oops, Solomon Islands are ambiguous. Let's ask GPT-4 to help provide
 a bit of disambiguation. We can improve the methodology here over time.
 
-![](/assets/2023-04-30-wikidata-llms/image9.png)
+![](./assets/2023-04-30-wikidata-llms/image9.png)
 
 <details>
     <summary><b>Conversation Text</b></summary>
@@ -383,7 +383,7 @@ property is right.
 
 Anyways, I ended up adding both:
 
-![](/assets/2023-04-30-wikidata-llms/image14.png)
+![](./assets/2023-04-30-wikidata-llms/image14.png)
 
 And voila! All of these steps presented are expectedly automatable, such
 that we could tie this into a neat UI that makes an automatic prediction
@@ -421,7 +421,7 @@ Brothers in Arms 2: Global Front.
 
 ### GPT-3.5
 
-![](/assets/2023-04-30-wikidata-llms/image10.png)
+![](./assets/2023-04-30-wikidata-llms/image10.png)
 
 GPT-3.5 is confidently wrong. [Battlefield: Bad Company
 2](https://en.wikipedia.org/wiki/Battlefield:_Bad_Company_2)
@@ -429,14 +429,14 @@ was released in March 2010 and does not take place in those locations.
 
 ### Bard
 
-![](/assets/2023-04-30-wikidata-llms/image11.png)
+![](./assets/2023-04-30-wikidata-llms/image11.png)
 
 Bard is also wrong. Brothers in Arms 2: Global Front is an acceptable
 answer.
 
 ### GPT-4
 
-![](/assets/2023-04-30-wikidata-llms/image18.png)
+![](./assets/2023-04-30-wikidata-llms/image18.png)
 
 GPT-4 is wrong about the release date, but is correct about where
 Battlefield: Bad Company 2 takes place.
@@ -450,7 +450,7 @@ First, we need to dump out the semantic components of this question.
 GPT-4 has many WikiData properties memorized, but not items, such as
 North Africa (Q27381).
 
-![](/assets/2023-04-30-wikidata-llms/image2.png)
+![](./assets/2023-04-30-wikidata-llms/image2.png)
 
 We then dump each of these items into search and dump out the tags for
 all of them.
@@ -473,7 +473,7 @@ possibly with some sort of text / graph embedding search.
 We then ask this question to GPT-3.5 (note that we don't need 4 here,
 though 4's version has better comments!):
 
-![](/assets/2023-04-30-wikidata-llms/image16.png)
+![](./assets/2023-04-30-wikidata-llms/image16.png)
 
 <details>
     <summary><b>Conversation Text</b></summary>
@@ -575,12 +575,12 @@ Plopping that into WikiData, we get the correct answer!
 ([query](https://w.wiki/6cfo))
 ([result](https://w.wiki/6cfq))
 
-![](/assets/2023-04-30-wikidata-llms/image20.png)
+![](./assets/2023-04-30-wikidata-llms/image20.png)
 
 We can then export detailed JSON of that question back to ChatGPT to get
 a nicely formatted answer:
 
-![Answer](/assets/2023-04-30-wikidata-llms/image13.png)
+![Answer](./assets/2023-04-30-wikidata-llms/image13.png)
 
 ### So Long Fully Automated Space Gay Bowser
 
@@ -589,7 +589,7 @@ for an automated simple LangChain wikibase agent for doing WikiData lookups.
 
 Let's ask it a question past the ChatGPT 2021 knowledge cutoff about the Mario movie.
 
-![](/assets/2023-04-30-wikidata-llms/mario.png)
+![](./assets/2023-04-30-wikidata-llms/mario.png)
 
 And success! It answer with the correct names of the directors.
 
